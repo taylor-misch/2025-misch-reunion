@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Misch Family Photo Gallery</title>
+    <link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+    <h1>Misch Family Photo Gallery</h1>
+    <p>Scroll through the memories and faces of our incredible family! Click on any photo to enlarge the image!</p>
+</header>
+<nav>
+    <ul class="navbar">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="gallery.html" class="active">📸 Gallery</a></li>
+    </ul>
+</nav>
+<section class="gallery">
+    <div class="photo-card">
+        <img alt="Grandma Agnes and Grandpa Joseph" onclick="openLightbox(this)" src="images/agnes-and-joseph.jpg"/>
+        <p class="caption"><strong>Agnes & Joseph Misch</strong></p>
+    </div>
+
+    <div class="photo-card">
+        <img alt="Doc's family group" onclick="openLightbox(this)" src="images/helen-49-ford.jpg"/>
+        <p class="caption"><strong>Doc's Family: Kathy, Karl, Jean, Doug, Patty</strong></p>
+    </div>
+
+    <div class="photo-card">
+        <img alt="Mark Misch" onclick="openLightbox(this)" src="images/mark-misch.jpg"/>
+        <p class="caption"><strong>Mark Misch</strong></p>
+    </div>
+
+    <div class="photo-card">
+        <img alt="Misch Men" onclick="openLightbox(this)" src="images/misch-men.jpg"/>
+        <p class="caption"><strong>Clarence Misch Male Descendants</strong></p>
+    </div>
+
+    <div class="photo-card">
+        <img alt="Jerry & Helen" onclick="openLightbox(this)" src="images/jerry-helen.png"/>
+        <p class="caption"><strong>Jerry and Helen</strong></p>
+    </div>
+
+    <div class="photo-card">
+        <img alt="" onclick="openLightbox(this)" src="images/mark-bridget-lisa.jpg"/>
+        <p class="caption"><strong>Mark Bridget Lisa</strong></p>
+    </div>
+
+    <div class="photo-card">
+        <img alt="" onclick="openLightbox(this)" src="images/agnes-with-sister-in-laws.jpg"/>
+        <p class="caption"><strong>Agnes and Sister In Laws</strong></p>
+    </div>
+
+    <div class="photo-card">
+        <img alt="" onclick="openLightbox(this)" src="images/jordan-connor-taylor-misch.jpg"/>
+        <p class="caption"><strong>Jordan Connor and Taylor Misch</strong></p>
+    </div>
+
+    <div class="photo-card">
+        <img alt="" onclick="openLightbox(this)" src="images/clarence-martha-wedding.jpg"/>
+        <p class="caption"><strong>Clarence and Martha's Wedding Day</strong></p>
+    </div>
+
+    <div class="photo-card">
+        <img alt="" onclick="openLightbox(this)" src="images/clarence-misch-farm.jpg"/>
+        <p class="caption"><strong>Clarence Misch Farm</strong></p>
+    </div>
+
+    <!-- Add more photo cards as needed -->
+</section>
+
+<!-- Lightbox container -->
+<div class="lightbox hidden" id="lightbox">
+    <span class="close" id="closeBtn">&times;</span>
+    <img alt="Enlarged photo" id="lightboxImg" src=""/>
+    <p id="lightboxCaption"></p>
+</div>
+
+<footer>
+    <p>To add your photos, email them to <a href="mailto:taylormisch@gmail.com">taylormisch@gmail.com</a> with names and
+        context.</p>
+</footer>
+
+<script>
+    function openLightbox(img) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+        const caption = document.getElementById("lightboxCaption");
+
+        // Show the lightbox
+        lightbox.classList.remove("hidden");
+
+        // Set the image source and alt
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+
+        // Find the caption text from the sibling <p class="caption">
+        const photoCard = img.closest(".photo-card");
+        const captionText = photoCard.querySelector(".caption")?.textContent || img.alt;
+
+        // Update the lightbox caption
+        caption.textContent = captionText;
+    }
+
+    // Close on X click
+    document.getElementById("closeBtn").onclick = function () {
+        document.getElementById("lightbox").classList.add("hidden");
+    };
+
+    // Close on background click
+    window.onclick = function (event) {
+        const lightbox = document.getElementById("lightbox");
+        if (event.target === lightbox) {
+            lightbox.classList.add("hidden");
+        }
+    };
+</script>
+
+</body>
+</html>
