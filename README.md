@@ -4,6 +4,3 @@ This website is being set up in preparation for and to memorialize the Joe and A
 
 #### TODOs
 - [ ] Tag individual people
-- [ ] Resources Page for downloading attachments
-- [ ] Better captions for the photo gallery
-- [ ] Captions that include who provided the photo
