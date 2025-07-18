@@ -194,3 +194,28 @@ a:hover {
     }
 }
 
+.countdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fdfdfd;
+    max-width: 500px;
+    color: #305f72;
+}
+
+.countdown-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#countdown {
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+

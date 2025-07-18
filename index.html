@@ -20,11 +20,26 @@
         <li><a href="resources.html">📂 Resources</a></li>
     </ul>
 </nav>
+<section class="countdown-container">
+    <h2>⏳ Countdown to Reunion</h2>
+    <div id="countdown">
+        <span id="days">--</span>d&nbsp;
+        <span id="hours">--</span>h&nbsp;
+        <span id="minutes">--</span>m&nbsp;
+        <span id="seconds">--</span>s
+    </div>
+</section>
+<section>
+    <h2>✅ Full Agenda</h2>
+    <ul>
+        <li><a href="documents/joseph-and-agnes-misch-reunion-agenda.pdf" download>Joseph and Agnes Misch Reunion Agenda (PDF)</a></li>
+    </ul>
+</section>
 <section>
     <h2>📅 Friday, August 15</h2>
     <ul>
-        <li><strong>All day:</strong> Gathering space reserved at <a href="https://arcadiacountryclub.com/"><strong>Arcadia Country Club</strong></a></li>
-        <li><strong>1:00 PM:</strong> <em>Maliszewski Robot Dairy Farm Tour</em> (depart from ACC at 12:30)</li>
+        <li><strong>9:00 AM-Close:</strong> Gathering space reserved at <a href="https://arcadiacountryclub.com/"><strong>Arcadia Country Club</strong></a></li>
+        <li><strong>1:00 PM:</strong> <em>Maliszewski Robot Dairy Farm Tour</em> (depart from Arcadia Country Club at 12:30)</li>
         <li><strong>5:00–6:30 PM:</strong> Fish Fry Dinner at ACC (please RSVP with number of fish dinners)</li>
         <li><strong>6:30 PM:</strong> Trivia Night 🎉 (send 1 family trivia question to <a
                 href="mailto:tmdale@gmail.com">tmdale@gmail.com</a>)
@@ -58,5 +73,32 @@
 <footer>
     <p>Contact <strong>Mark Misch</strong> at <a href="mailto:markmischlax@yahoo.com">markmischlax@yahoo.com</a> for questions or updates.</p>
 </footer>
+
+<script>
+    function updateCountdown() {
+        const countdownDate = new Date("2025-08-15T12:00:00-05:00"); // CST time
+        const now = new Date();
+        const diff = countdownDate - now;
+
+        if (diff <= 0) {
+            document.getElementById("countdown").innerHTML = "🎉 The reunion has begun!";
+            clearInterval(timer);
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+    }
+
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown(); // initialize immediately
+</script>
 </body>
 </html>
